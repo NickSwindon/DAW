@@ -1,21 +1,30 @@
 <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
         <h3>Login</h3>
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <form #f="ngForm"
+             (ngSubmit)="onSubmit(f)">
+             
             <div class="mb-3">
               <label for="loginUsername" class="form-label">Username</label>
-              <input type="text"
+              <input type="text" 
+                     name="username"
+                     ngModel 
+                     required 
+                     #username="ngModel"
                      class="form-control"
                      id="loginUsername"
                      placeholder="Enter username">
+                     
             </div>
             <div class="mb-3">
               <label for="loginPassword" class="form-label">Password</label>
-              <input type="password"
+              <input type="password" name="password" ngModel required #password="ngModel"
                      class="form-control"
-                     id="loginPassword">
+                     id="loginPassword"
+                     placeholder="Password">
+                     
             </div>
-            <button type="submit" 
+            <button type="submit" [disabled]="f.invalid"
                     class="btn btn-primary">Login<i class="fas fa-sign-in-alt"></i></button>
           </form>
     </div>
